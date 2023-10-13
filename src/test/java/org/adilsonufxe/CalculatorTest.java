@@ -1,6 +1,6 @@
 package org.adilsonufxe;
 
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 public class CalculatorTest {
@@ -8,6 +8,6 @@ public class CalculatorTest {
     void integerDivision() {
         Calculator calculator = new Calculator();
         int result = calculator.integerDivision(4, 2);
-        Assertions.assertEquals(2, result);
+        assertEquals(2, result, "4 / 2 dit not produce 2");
     }
 }
