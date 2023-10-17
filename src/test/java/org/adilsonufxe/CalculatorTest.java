@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
 
@@ -52,11 +53,12 @@ public class CalculatorTest {
     @DisplayName("Should return Thirty Two When Subtraction ThirtyThree By One  ")
     @ParameterizedTest
 //    @MethodSource()
-    @CsvSource({
-            "12, 10, 2",
-            "1, 1, 0",
-            "12, 14, -2"
-    })
+//    @CsvSource({
+//            "12, 10, 2",
+//            "1, 1, 0",
+//            "12, 14, -2"
+//    })
+    @CsvFileSource(resources = "/integerSubtraction.csv")
     void integerSubtraction(int minuend, int subtrahend, int expectedResult) {
         Calculator calculator = new Calculator();
 
