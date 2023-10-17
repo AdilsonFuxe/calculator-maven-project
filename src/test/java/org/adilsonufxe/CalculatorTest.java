@@ -4,10 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.CsvFileSource;
-import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.*;
 
 import java.util.stream.Stream;
 
@@ -47,6 +44,13 @@ public class CalculatorTest {
         Calculator calculator = new Calculator();
         Exception exception = assertThrows(ArithmeticException.class, () -> calculator.integerDivision(4, 0));
         assertEquals("/ by zero", exception.getMessage());
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"Adilson", "Fuxe"})
+    void valueSourceDemonstration(String firstName) {
+        System.out.println(firstName);
+        assertNotNull(firstName);
     }
 
 
