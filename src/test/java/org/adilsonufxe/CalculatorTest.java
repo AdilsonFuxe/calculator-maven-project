@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
@@ -50,7 +51,12 @@ public class CalculatorTest {
 
     @DisplayName("Should return Thirty Two When Subtraction ThirtyThree By One  ")
     @ParameterizedTest
-    @MethodSource()
+//    @MethodSource()
+    @CsvSource({
+            "12, 10, 2",
+            "1, 1, 0",
+            "12, 14, -2"
+    })
     void integerSubtraction(int minuend, int subtrahend, int expectedResult) {
         Calculator calculator = new Calculator();
 
@@ -59,11 +65,11 @@ public class CalculatorTest {
         assertEquals(expectedResult, result, () -> minuend + " - " + subtrahend + " did not produce " + expectedResult);
     }
 
-    private static Stream<Arguments> integerSubtraction() {
-        return Stream.of(
-                Arguments.of(33, 1, 32),
-                Arguments.of(20, 21, -1),
-                Arguments.of(10, 10, 0)
-        );
-    }
+//    private static Stream<Arguments> integerSubtraction() {
+//        return Stream.of(
+//                Arguments.of(33, 1, 32),
+//                Arguments.of(20, 21, -1),
+//                Arguments.of(10, 10, 0)
+//        );
+//    }
 }
